@@ -56,16 +56,17 @@ p {
     padding-left: 3em;
 }
 
-.chapter {
+div.chapter {
     counter-increment: chapter;
     page-break-before: always;
+    margin-top: 3em;
 }
 
-.chapter h2 {
+div.chapter h2 {
     padding-left: 0;
 }
 
-.chapter h2:before {
+div.chapter h2:before {
     content: counter(chapter);
     width: 1em;
     padding-right: 0.5em;
@@ -79,6 +80,11 @@ p {
 
 #front h1 {
     margin: 1em 0 11em 0;
+}
+
+#front,
+#second {
+    margin-bottom: 3em;
 }
 
 #toc,
@@ -108,8 +114,15 @@ p {
         color: #1b60a7;
     }
 
-    p {
+    #second,
+    div.chapter {
         max-width: 40em;
+        border-top: 1px solid #ddd;
+        padding-right: 3em;
+    }
+
+    #front h1 {
+        margin: 1em 0 0.5em 0;
     }
 }
 </style>
@@ -167,8 +180,10 @@ Fabian Vogler, <a href="mailto:fabian.vogler@gmail.com">fabian.vogler@gmail.com<
 </p>
 </div>
 
+<div id="second">
 <h2>Inhaltsverzeichnis</h2>
 <ol id=toc></ol>
+</div>
 
 <div class="chapter">
 <h2>Einleitung</h2>
