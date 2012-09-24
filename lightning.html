@@ -73,6 +73,14 @@ p {
     text-align: right;   
 }
 
+#front {
+    page-break-after: always;
+}
+
+#front h1 {
+    margin: 1em 0 11em 0;
+}
+
 #toc,
 #toc ol {
     list-style-type: none;
@@ -143,7 +151,21 @@ function maketoc()
 </head>
 <body onload="maketoc();">
 
+<div id="front">
+<p>
+ZHAW Zürcher Hochschule für Angewandte Wissenschaften<br/>
+Bachelorstudium Informatik<br/>
+Seminararbeit Entwickeln von Anwendungen für Hand-Held<br/>
+Dozent: Christian Vils<br/>
+Herbstsemester 2012
+</p>
 <h1>Lightning App</h1>
+<p>
+Cyril Gabathuler, <a href="mailto:cyril.gabathuler@gmail.com">cyril.gabathuler@gmail.com</a><br/>
+Fabian Vogler, <a href="mailto:fabian.vogler@gmail.com">fabian.vogler@gmail.com</a><br/>
+9. Januar 2013
+</p>
+</div>
 
 <h2>Inhaltsverzeichnis</h2>
 <ol id=toc></ol>
