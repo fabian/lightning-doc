@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Lightning App</title>
+<style>
+@page {
+    size: a4;
+    margin: 20mm 20mm 30mm 25mm;
+
+    @bottom-left {
+        content: "Lightning App";
+        font-family: "Helvetica Neue", Helvetica, sans-serif;
+        font-size: 1em;
+        color: #aaa;
+        padding-left: 3em;
+    }
+
+    @bottom-right {
+        content: counter(page);
+        font-family: "Helvetica Neue", Helvetica, sans-serif;
+        font-size: 1em;
+        color: #aaa;
+    }
+}
+
+html { 
+    color: #333;
+    font-size: 1em;
+    line-height: 1.6;
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+    text-rendering: optimizeLegibility; 
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+h1,
+h2 {
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 3em;
+    padding-left: 1em;
+}
+
+h2 {
+    font-size: 2em;
+    padding-left: 1.5em;
+}
+
+p {
+    padding-left: 3em;
+}
+
+.chapter {
+    counter-increment: chapter;
+    page-break-before: always;
+}
+
+.chapter h2 {
+    padding-left: 0;
+}
+
+.chapter h2:before {
+    content: counter(chapter);
+    width: 1em;
+    padding-right: 0.5em;
+    display: inline-block;
+    text-align: right;   
+}
+
+#toc,
+#toc ol {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#toc a:after {
+    content: " " leader(".") " " target-counter(attr(href), page);
+}
+
+#toc .chapter {
+    display: inline-block;
+    text-align: right;
+    width: 2em;
+    padding-right: 1em;
+}
+
+@media screen {
+    body {
+        margin: 4em 3em 6em 3em;
+    }
+
+    a {
+        color: #1b60a7;
+    }
+
+    p {
+        max-width: 40em;
+    }
+}
+</style>
+<script>
+
+function maketoc()
+{
+    var headers = document.getElementsByTagName('h2');
+    var toc = document.getElementById('toc');
+
+    // skip first header (TOC)
+    for (var i = 1; i < headers.length; i++) {
+
+        // add ID to header
+        headers[i].setAttribute('id', 'chapter' + i);
+
+        var li = document.createElement('li');
+
+        var a = document.createElement('a');
+        a.setAttribute('href', '#chapter' + i);
+
+        var spanChapter = document.createElement('span');
+        spanChapter.setAttribute('class', 'chapter');
+        spanChapter.appendChild(document.createTextNode('' + i));
+        a.appendChild(spanChapter);
+
+        var spanTitle = document.createElement('span');
+        spanTitle.setAttribute('class', 'title');
+        spanTitle.appendChild(document.createTextNode(headers[i].innerHTML));
+        a.appendChild(spanTitle);
+
+        li.appendChild(a);
+
+        toc.appendChild(li); 
+    }
+}
+
+</script>
+</head>
+<body onload="maketoc();">
+
+<h1>Lightning App</h1>
+
+<h2>Inhaltsverzeichnis</h2>
+<ol id=toc></ol>
+
+<div class="chapter">
+<h2>Einleitung</h2>
+<p>
+Shoreditch reprehenderit pariatur, excepteur hoodie chambray
+ullamco ut cosby sweater incididunt magna id hella delectus 
+carles. Exercitation fingerstache nisi, bicycle rights four loko
+cliche gastropub PBR gluten-free wes anderson enim fixie
+polaroid anim. Cardigan you probably haven't heard of them pop
+up, twee next level ad voluptate wayfarers readymade keytar 
+cupidatat. Banksy post-ironic jean shorts wolf blog pork belly 
+narwhal. Marfa PBR +1, magna you probably haven't heard of them
+non occupy. Cupidatat flexitarian vero before they sold out, in 
+vegan next level deserunt lo-fi chambray semiotics est. Chambray 
+leggings carles tempor, VHS ex raw denim authentic pop-up enim.
+</p>
+</div>
+
+<div class="chapter">
+<h2>Aufgabenstellung</h2>
+<p>
+Cred scenester williamsburg, put a bird on it polaroid beard 
+brooklyn irony non butcher pour-over bushwick four loko
+gastropub. Esse mustache ethnic retro truffaut velit, lomo 
+shoreditch vegan consequat odd future. Et duis beard in food 
+truck kale chips gluten-free velit odd future selvage. Four loko 
+retro quinoa fanny pack, id keytar bushwick. Nisi magna occupy 
+deserunt aliqua gentrify. Ex art party anim, laborum aliqua blog 
+letterpress wolf selvage viral id pickled reprehenderit. Forage 
+cosby sweater mlkshk, tattooed blog adipisicing deserunt.
+</p>
+</div>
+
+</body>
+</html>
