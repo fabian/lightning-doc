@@ -63,6 +63,14 @@ p {
     padding-left: 3.75em;
 }
 
+p.figure {
+    padding: 1.5em 0;
+}
+
+p.figure img {
+    max-width: 100%;
+}
+
 div.chapter {
     counter-increment: chapter;
     page-break-before: always;
@@ -134,11 +142,14 @@ div.chapter h3:before {
         color: #1b60a7;
     }
 
+    p {
+        padding-right: 3em;
+    }
+
     #second,
     div.chapter {
         max-width: 40em;
         border-top: 1px solid #ddd;
-        padding-right: 3em;
     }
 
     #front h1 {
@@ -250,15 +261,33 @@ Benachrichtigungen angezeigt werden. Der Benutzer soll sich ohne Benutzername
 und Passwort auf einem beliebigen Gerät im Browser auf seine Listen zugreifen 
 können. Dazu soll ein eigenes Authentifizierungsverfahren verwendet werden.
 </p>
-</div>
 
-<div class="chapter">
-<h2>Aufgabenstellung</h2>
+<h3>Aufgabenstellung</h3>
 <p>
 Konzeption und Implementation einer iPhone-App sowie einer Web-Applikation zur 
 gemeinsamen Nutzung von Listen. Ausarbeitung eines eigenen 
 Authentifizierungsverfahren zwischen der iPhone-App und der Web-Applikation für 
 den geräteunabhängigen Zugriff auf die Listen.
+</p>
+</div>
+
+<div class="chapter">
+<h2>Projektplanung</h2>
+<p>
+TODO
+</p>
+</div>
+
+<div class="chapter">
+<h2>Authentifizierung</h2>
+<p>
+Um von jedem beliebigen Gerät auf die eigenen Listen zugreifen zu können ist
+eine Prozess notwendig, um die Verbindung mit dem Account herzustellen und den 
+Zugriff auf diesen zu berechtigen.
+</p>
+
+<p class="figure">
+<img src="images/authentication.png" />
 </p>
 </div>
 
