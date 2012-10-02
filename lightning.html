@@ -13,7 +13,7 @@
         font-family: "Helvetica Neue", Helvetica, sans-serif;
         font-size: 1em;
         color: #aaa;
-        padding-left: 3em;
+        padding-left: 3.75em;
     }
 
     @bottom-right {
@@ -38,22 +38,29 @@ a {
 }
 
 h1,
-h2 {
+h2,
+h3 {
     font-weight: normal;
 }
 
 h1 {
     font-size: 3em;
-    padding-left: 1em;
+    padding-left: 1.25em;
 }
 
 h2 {
     font-size: 2em;
-    padding-left: 1.5em;
+    padding-left: 1.875em;
+}
+
+h3 {
+    font-size: 1.5em;
+    padding-left: 2.5em;
 }
 
 p {
-    padding-left: 3em;
+    font-size: 1em;
+    padding-left: 3.75em;
 }
 
 div.chapter {
@@ -68,10 +75,23 @@ div.chapter h2 {
 
 div.chapter h2:before {
     content: counter(chapter);
-    width: 1em;
+    width: 1.5em;
+    padding-right: 0.375em;
+    display: inline-block;
+    text-align: right;
+}
+
+div.chapter h3 {
+    counter-increment: sub-chapter;
+    padding-left: 0;
+}
+
+div.chapter h3:before {
+    content: counter(chapter) "." counter(sub-chapter);
+    width: 2em;
     padding-right: 0.5em;
     display: inline-block;
-    text-align: right;   
+    text-align: right;
 }
 
 #front {
@@ -101,8 +121,8 @@ div.chapter h2:before {
 #toc .chapter {
     display: inline-block;
     text-align: right;
-    width: 2em;
-    padding-right: 1em;
+    width: 3em;
+    padding-right: 0.75em;
 }
 
 @media screen {
@@ -128,41 +148,63 @@ div.chapter h2:before {
 </style>
 <script>
 
-function maketoc()
-{
-    var headers = document.getElementsByTagName('h2');
-    var toc = document.getElementById('toc');
+function item(node, id, chapter) {
+
+    var li, a, spanChapter, spanTitle;
+
+    node.setAttribute('id', id);
+
+    li = document.createElement('li');
+
+    a = document.createElement('a');
+    a.setAttribute('href', '#' + id);
+
+    spanChapter = document.createElement('span');
+    spanChapter.setAttribute('class', 'chapter');
+    spanChapter.appendChild(document.createTextNode(chapter));
+    a.appendChild(spanChapter);
+
+    spanTitle = document.createElement('span');
+    spanTitle.setAttribute('class', 'title');
+    spanTitle.appendChild(document.createTextNode(node.innerHTML));
+    a.appendChild(spanTitle);
+
+    li.appendChild(a);
+
+    return li;
+}
+
+function toc() {
+
+    var headers = document.getElementsByTagName('h2'),
+        toc = document.getElementById('toc'),
+        node, id, chapter, li, childs;
 
     // skip first header (TOC)
     for (var i = 1; i < headers.length; i++) {
 
-        // add ID to header
-        headers[i].setAttribute('id', 'chapter' + i);
+        node = headers[i];
+        id = 'chapter-' + i;
+        chapter = '' + i;
+        li = item(node, id, chapter);
+        toc.appendChild(li);
 
-        var li = document.createElement('li');
+        childs = node.parentNode.getElementsByTagName("h3");
 
-        var a = document.createElement('a');
-        a.setAttribute('href', '#chapter' + i);
+        for (var j = 0; j < childs.length; j++) {
 
-        var spanChapter = document.createElement('span');
-        spanChapter.setAttribute('class', 'chapter');
-        spanChapter.appendChild(document.createTextNode('' + i));
-        a.appendChild(spanChapter);
-
-        var spanTitle = document.createElement('span');
-        spanTitle.setAttribute('class', 'title');
-        spanTitle.appendChild(document.createTextNode(headers[i].innerHTML));
-        a.appendChild(spanTitle);
-
-        li.appendChild(a);
-
-        toc.appendChild(li); 
+            node = childs[j];
+            id = 'chapter-' + i + '-' + (j + 1);
+            chapter = '' + i + '.' + (j + 1);
+            li = item(node, id, chapter);
+            toc.appendChild(li); 
+        }
     }
 }
 
 </script>
 </head>
-<body onload="maketoc();">
+<body onload="toc();">
 
 <div id="front">
 <p>
@@ -187,19 +229,28 @@ Fabian Vogler, <a href="mailto:fabian@lightningapp.ch">fabian@lightningapp.ch</a
 
 <div class="chapter">
 <h2>Einleitung</h2>
+
+<h3>Ausgangslage</h3>
 <p>
-Shoreditch reprehenderit pariatur, excepteur hoodie chambray
-ullamco ut cosby sweater incididunt magna id hella delectus 
-carles. Exercitation fingerstache nisi, bicycle rights four loko
-cliche gastropub PBR gluten-free wes anderson enim fixie
-polaroid anim. Cardigan you probably haven't heard of them pop
-up, twee next level ad voluptate wayfarers readymade keytar 
-cupidatat. Banksy post-ironic jean shorts wolf blog pork belly 
-narwhal. Marfa PBR +1, magna you probably haven't heard of them
-non occupy. Cupidatat flexitarian vero before they sold out, in 
-vegan next level deserunt lo-fi chambray semiotics est. Chambray 
-leggings carles tempor, VHS ex raw denim authentic pop-up enim.
+Ausgelöst durch den aktuellen Trend hin zur mobile Nutzung sind diverse neue 
+Applikationen zur Erfassung und Verwaltung von Merklisten erschienen. Nur wenige
+erlauben es aber, die Listen mit anderen Personen gemeinsam zu nutzen. Oft muss 
+dazu auch zuerst ein Benutzerkonto mit Benutzernamen und Passwort erstellt 
+werden. Dieses vom Desktop-Computer übernommene Konzept funktioniert im mobile 
+Kontext aufgrund der eingeschränkten Eingabemöglichkeiten und den 
+unterschiedlichen Endgeräten jedoch suboptimal.
 </p>
+
+<h3>Ziele der Arbeit</h3>
+<p>
+Entwicklung einer iPhone-App, welche es ermöglicht Listen unter mehreren 
+Personen zu teilen, sowie einer dazugehörender API mit einem Web-Frontend. 
+Informationen über Änderungen einer Liste sollen dem Benutzer zudem zeitnah über 
+Benachrichtigungen angezeigt werden. Der Benutzer soll sich ohne Benutzername 
+und Passwort auf einem beliebigen Gerät im Browser auf seine Listen zugreifen 
+können. Dazu soll ein eigenes Authentifizierungsverfahren verwendet werden.
+</p>
+
 </div>
 
 <div class="chapter">
