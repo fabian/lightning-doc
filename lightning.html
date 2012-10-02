@@ -178,10 +178,10 @@ function toc() {
 
     var headers = document.getElementsByTagName('h2'),
         toc = document.getElementById('toc'),
-        node, id, chapter, li, childs;
+        i, j, node, id, chapter, li, childs;
 
     // skip first header (TOC)
-    for (var i = 1; i < headers.length; i++) {
+    for (i = 1; i < headers.length; i++) {
 
         node = headers[i];
         id = 'chapter-' + i;
@@ -191,7 +191,7 @@ function toc() {
 
         childs = node.parentNode.getElementsByTagName("h3");
 
-        for (var j = 0; j < childs.length; j++) {
+        for (j = 0; j < childs.length; j++) {
 
             node = childs[j];
             id = 'chapter-' + i + '-' + (j + 1);
