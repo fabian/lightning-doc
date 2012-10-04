@@ -116,6 +116,10 @@ div.chapter h3:before {
     margin: 1em 0 11em 0;
 }
 
+#front .logo {
+    display: none;
+}
+
 #front,
 #second {
     margin-bottom: 3em;
@@ -163,21 +167,30 @@ div.chapter h3:before {
         border-top: 1px solid #ddd;
     }
 
-    #front:before {
-        content: ' ';
-        background-image: url('images/lightning.svg');
-        background-repeat: no-repeat;
-        background-size: 50px 50px;
+    #front {
+        position: relative;
+        top: -4em;
+        left: -3em;
+        width: 100%;
+        padding: 4em 3em 2em 3em;
+        margin-bottom: -4em;
+    }
+
+    p {
         position: fixed;
+        margin: 0;
+        padding: 0;
         top: 4em;
         right: 4.5em;
         display: block;
         width: 50px;
         height: 50px;
         opacity: 0.1;
+        -webkit-transition: opacity 0.5s linear;
+        -moz-transition: opacity 0.5s linear;
     }
 
-    #front:hover:before {
+    #front:hover .logo {
         opacity: 1;
     }
 
@@ -261,6 +274,9 @@ Dozent: Christian Vils<br/>
 Herbstsemester 2012
 </p>
 <h1>Lightning App</h1>
+<p class="logo">
+<img src="images/lightning.svg" width="50" height="50" />
+</p>
 <p>
 Cyril Gabathuler, <a href="mailto:cyril@lightningapp.ch">cyril@lightningapp.ch</a><br/>
 Fabian Vogler, <a href="mailto:fabian@lightningapp.ch">fabian@lightningapp.ch</a><br/>
