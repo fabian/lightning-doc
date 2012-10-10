@@ -10,7 +10,7 @@
 	<path fill="none" stroke="#444444" d="M70,59C70,94,70,94,70,129" stroke-width="2"></path>
 	<path fill="none" stroke="#444444" d="M70,141C70,155,70,155,70,170" stroke-width="2"></path>
 	<path fill="none" stroke="#444444" d="M70,182C70,196,70,196,70,211" stroke-width="2"></path>
-	<text font-family="Helvetica Neue" font-size="15" x="120" y="17">Entwickler Lokal</text>
+	<text font-family="Helvetica Neue" font-size="15" x="120" y="17">Lokal</text>
 	<text font-family="Helvetica Neue" font-size="15" x="120" y="58">GitHub</text>
 	<text font-family="Helvetica Neue" font-size="15" x="120" y="99">PHP Automated Review</text>
 	<text font-family="Helvetica Neue" font-size="15" x="120" y="140">Travis CI</text>

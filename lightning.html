@@ -70,12 +70,17 @@ p {
     padding-left: 3.75em;
 }
 
-p.figure {
+div.figure {
     padding: 1.5em 0;
 }
 
-p.figure img {
+div.figure img {
     max-width: 100%;
+}
+
+div.figure .caption {
+    font-size: 0.75em;
+    padding-left: 5em;
 }
 
 div.chapter {
@@ -363,9 +368,10 @@ eine Prozess notwendig, um die Verbindung mit dem Account herzustellen und den
 Zugriff auf diesen zu berechtigen.
 </p>
 
-<p class="figure">
+<div class="figure">
 <img src="images/authentication.png" />
-</p>
+<p class="caption">Abb. 1 Ablauf Authentifizierung</p>
+</div>
 </div>
 
 <div class="chapter">
@@ -377,6 +383,10 @@ Symfony2
 <p>
 
 <h3>Entwicklung</h3>
+<div class="figure">
+<img src="images/deploy.svg" width="500" height="250" />
+<p class="caption">Abb. 2 Übersicht Ablauf Entwicklung</p>
+</div>
 
 <h4>PHPUnit</h4>
 <p>
@@ -395,9 +405,6 @@ Travis CI
 </h4>
 <p>
 GitHub: Der zentrale Server der Versionsverwaltung ermöglicht das Review von Änderungen und löst bei die nachfolgenden Schritte aus.
-</p>
-<p class="figure">
-<img src="images/deploy.svg" width="500" height="250" />
 </p>
 
 </div>
