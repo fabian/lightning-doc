@@ -41,33 +41,42 @@ a {
 h1,
 h2,
 h3,
-h4 {
+h4,
+p {
     font-weight: normal;
+    padding-left: 60px;
 }
 
 h1 {
     font-size: 3em;
-    padding-left: 1.25em;
 }
 
 h2 {
     font-size: 2em;
-    padding-left: 1.875em;
 }
 
 h3 {
     font-size: 1.5em;
-    padding-left: 2.5em;
 }
 
 h4 {
     font-size: 1.25em;
-    padding-left: 3em;
 }
 
 p {
     font-size: 1em;
-    padding-left: 3.75em;
+}
+
+p.code {
+    padding-left: 40px;
+}
+
+p.code code {
+    font-size: 0.8em;
+    display: block;
+    border-left: 1px solid #126396;
+    padding: 0.5em 0 0.5em 19px;
+    background-color: #f6f6f6;
 }
 
 div.figure {
@@ -80,7 +89,7 @@ div.figure img {
 
 div.figure p.caption {
     font-size: 0.75em;
-    padding-left: 5em;
+    padding-left: 60px;
 }
 
 div.chapter {
@@ -392,7 +401,35 @@ Symfony2
 Lokal
 </h4>
 <p>
-TODO
+Entwickelt wird die Applikation lokal auf dem Computer der Schüler.
+Die Installationstionsvoraussetzungen sind minimal und werden mit den meisten
+modernen, unixähnlichen Betriebssystemen (wie z.B. Mac OS X) mitgeliefert.
+Konkret wird nur PHP ab Version 5.3 vorausgesetzt - auf Windows kann dieses auch
+einfach manuell installiert werden. Sämtliche restlichen Abhängigkeiten können
+mit dem PHP Dependency Manager namens Composer installiert werden.
+</p>
+<p>Die Verwaltung
+des Source Codes erfolgt über die Versionverwaltungs-Software Git und damit der
+Source Code auch allen zugänglich ist, wird zudem der kostenlose Dienst GitHub
+eingesetzt.
+</p>
+<p>
+Um das Projekt auf einem Computer von Grund auf zu installieren genügen folgende Befehle:
+</p>
+<p class="code">
+<code>
+git clone git://github.com/fabian/lightning-web.git lightning-web<br/>
+curl -s http://getcomposer.org/installer | php<br/>
+php composer.phar install --dev<br/>
+php app/console doctrine:database:create<br/>
+php app/console doctrine:migrations:migrate<br/>
+php app/console server:run
+</code>
+</p>
+<p>
+Mit diesen Befehlen wird der Source Code heruntergeladen, die Abhängigkeiten
+installiert, die benötigten Datenbanken erstellt und der Entwicklungsserver
+gestartet. Danach ist die Applikation unter http://localhost:8000/ benutzbar.
 </p>
 
 <h4>
