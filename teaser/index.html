@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Lightning</title>
+
+    <link rel="stylesheet" href="normalize.css" />
+    <style>
+    body {
+        margin: 2em 1.5em;
+    }
+
+    section.description {
+        float: left;
+        max-width: 35em;
+    }
+
+    h1, h2 {
+        font-weight: normal;
+    }
+
+    h1 {
+        margin-bottom: 0.6em;
+    }
+
+    h2 {
+        margin-top: 0;
+        margin-bottom: 1em;
+    }
+
+    p {
+        line-height: 1.5;
+    }
+
+    ul {
+        padding-left: 0;
+        list-style-type: none;
+        line-height: 1.5;
+    }
+
+    ul li:before {
+        content: "– ";
+    }
+
+    a {
+        color: #2f5bca;
+    }
+
+    figure.demo {
+        float: right;
+        background-image: url('lightning-phone.png');
+        background-repeat: no-repeat;
+        background-size: 415px 820px;
+        width: 368px;
+        height: 693px;
+        padding: 147px 0 0 47px;
+    }
+    </style>
+</head>
+<body>
+
+<section class="description">
+    
+<h1>Lightning App</h1>
+<h2>Merklisten mit Push-Benachrichtigung</h2>
+
+<p>
+Ziel des Projekts ist das Erstellen einer iPhone-App zur Verwaltung von
+Merklisten, welche mit anderen Personen geteilt werden können. Zusätzlich solle
+eine API mit einem Web-Frontend entwickelt werden. Der Benutzer 
+soll durch ein selbst erarbeitetes Authentifizierungsverfahren ohne 
+Benutzername und Passwort von überall auf seine Merklisten zugreifen können.
+<p>
+
+<p>
+Die REST API wird mit dem PHP Framework
+<a href="http://symfony.com/">Symfony</a> entwickelt. Der Source Code
+wird auf dem zentralen Service GitHub verwaltet und auf der Continuous
+Integration Platform <a href="https://travis-ci.org/">Travis</a> getestet.
+</p>
+
+<p>
+–<br/>
+Cyril Gabathuler<br/>
+Fabian Vogler
+</p>
+
+</section>
+
+<figure class="demo"><img src="lightning-demo.gif" width="320" height="548" /></figure>
+
+</body>
+</html>
