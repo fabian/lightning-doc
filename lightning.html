@@ -387,8 +387,53 @@ Zugriff auf diesen zu berechtigen.
 <h2>Web-Applikation</h2>
 
 <h3>Architektur</h3>
+
 <p>
-Symfony2 
+Die Applikation befolgt die grunsätzlichen Prinzipien zweier moderner
+Software-Architektur. Zum einen die Model–View–Controller-Architektur als Basis
+für den Aufbau der Software, zum anderen die REST-Architetkur (Representational
+state transfer), welche die Struktur der API vorgibt.
+</p>
+
+<h4>Model-View-Controller</h4>
+
+<p>
+Für die Software kommt eine an das Web angepasster Form der
+Model–View–Controller-Architektur zur Anwendung, welche mithilfe des
+PHP-Frameworks Symfony in der Version 2.1 umgesetzt wurde:
+</p>
+
+<p>
+Das Model setzt sich aus den gespeicherten Daten und der
+Business-Logik zusammen. Es besteht aus den Klassen in den Namespaces
+<code>Lightning\ApiBundle\Entity</code> und
+<code>Lightning\ApiBundle\Service</code>.
+</p>
+<p>
+Die View ist für die Darstellung der Daten zuständig. Sie
+entscheidet basierend auf der Anfrage des Benutzers, in welcher Form die Daten
+dargestellt werden. Diese Funktion wird in der API haupstächlich durch das
+Symfony Bundle names 
+<a href="https://github.com/FriendsOfSymfony/FOSRestBundle">FOSRestBundle</a>
+erledigt, welches die Daten des Controllers gemäss dem HTTP-Header
+<code>Accept</code> entweder in JSON oder XML zurückgibt.
+</p>
+<p>
+Der Controller nimmt Benutzeranfragen entgegen und ruft die
+nötigen Befehle aus dem Model auf. Er gibt dann die Daten aus dem Model an die
+View weiter, damit diese die Daten darstellen kann. Die dafür zuständigen Klassen
+befinden sich im Namespace <code>Lightning\ApiBundle\Controller</code>.
+</p>
+
+
+<h4>REST</h4>
+<p>
+FOSRestBundle
+<p>
+
+<h4>FOSRestBundle</h4>
+<p>
+TODO
 <p>
 
 <h3>Entwicklung</h3>
