@@ -407,7 +407,7 @@ function figures() {
         a = document.createElement('a');
         a.setAttribute('href', '#' + figure.getAttribute('id'));
 
-        a.appendChild(document.createTextNode(caption.innerHTML));
+        a.appendChild(document.createTextNode(caption.textContent));
 
         li.appendChild(a);
         figures.appendChild(li); 
