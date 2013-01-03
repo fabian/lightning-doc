@@ -958,38 +958,53 @@ manuell und programmatisch erstellt, teilweise jedoch auch mit Hilfe des Interfa
 	Dieser Kassenzettel wird an unseren Server übermittellt, welcher wiederum mit einem Apple Server kommuniziert.
 	Durch diesen Ansatz kann eine Man-in-the-middle Attacke abgewehrt werden.</p>
 <figure id="figure-in-app-purchase">
-	<img src="images/in_app_purchase.png" />
+	<img src="images/in_app_purchase.png" height="350"/>
 	<figcaption>Ablauf eines In-App Kaufes</figcaption>
 </figure>
 <figure id="figure-in-app-button">
-	<img src="images/in_app_button.png" height="600"/>
+	<img src="images/in_app_button.png" height="500"/>
 	<figcaption>In-App Button für den Kauf</figcaption>
 </figure>
 
 <h3>Entwicklung</h3>
 
-<h4>Jenkins CI</h4>
+<figure id="figure-workflow">
+	<img src="images/workflow.png"/>
+	<figcaption>Workflow iPhone App</figcaption>
+</figure>
+
+<h4>github</h4>
 <p>
-TODO
+	Der Sourcecode wird auf github in einem privaten Repository gehalten. Zugang haben nur die Entwickler.
 </p>
 
-<h4>Selenium?</h4>
+<h4>Jenkins CI</h4>
 <p>
-TODO
+	Jenkins wird verwendet um die App kontinuierlich zu builden. Es wurde ein Job definiert, welcher der Build
+	Prozess anstösst sobald ein Änderung auf github gepusht worden ist. Das Ergebnis eines Builds ist ein sogennantes
+	IPA File. Dieses enthählt die App an sich. Dieses File wird direkt auf TestFlight hochgeladen.
 </p>
 
 <h4>
 TestFlight
 </h4>
 <p>
-TODO
+TestFlight bietet die Möglichkeit die App einfach an verschiedene Tester zu verteilen und Feedback einzusammeln.
+Tester müssen sich über ein Link registrieren und erhalten danach die Möglichkeit die App zu installieren. In der App
+haben die Tester die Möglichkeit Feedback an die Entwickler zu senden.
 </p>
+<figure id="figure-testflight-feedback">
+	<img src="images/testflight-feedback.png" height="500"/>
+	<figcaption>Feedback Button für die Entwickler</figcaption>
+</figure>
 
 <h4>
 Crashlytics
 </h4>
 <p>
-TODO
+Um Abstürze während der Testphase zu dokumentieren wurde das Framework Crashlytics eingesetzt. Sollte die App
+abstürzen wird ein Log file erstellt, welches in einem Web Interface von Crashlytics dargestellt wird.
+Dies vereinfacht die Suche nach Fehler in der Applikation und der Einfluss auf die User kann gemessen werden.
 </p>
 
 </div>
