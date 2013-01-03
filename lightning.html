@@ -1036,6 +1036,16 @@ Webserver für PHP-Applikationen (Cloud-Hosting). Eine einzelne Server-Instanz
 kann kostenlos betrieben werden, steigt die Benutzeranzahl, kann einfach gegen
 eine Gebühr die Anzahl der Server erhöht werden.
 </p>
+<p>
+Das Deployment bei Pagda Box erfolgt ebenfalls mit Git. Es gäbe die Möglichkeit,
+einen Private Key mit Deployment-Rechten auf dem Travis-Server zu hinterlegen,
+wodurch nach den erfolgreichen Tests direkt von dort deployed werden können. Dies
+hätte aber zum Nachteil, dass der Private Key öffentlich wäre und jede Person
+beliebigen Code auf den Server deployen könnte. Es wurde deshalb eine separate
+Deployment-Applikation mit PHP geschrieben und auf einem separaten Server
+installiert. Die Deployment-Applikation wird Travis aufgerufen und überprüft
+dessen Signatur anhand eines geheimen Tokens und führt dann das Deployment durch.
+</p>
 
 </div>
 
@@ -1211,6 +1221,10 @@ Dies vereinfacht die Suche nach Fehler in der Applikation und der Einfluss auf d
 <dt>Pull Request</dt>
 <dd>TODO</dd>
 <dt>Continious Integration</dt>
+<dd>TODO</dd>
+<dt>Private Key</dt>
+<dd>TODO</dd>
+<dt>Deployment</dt>
 <dd>TODO</dd>
 </dl>
 
