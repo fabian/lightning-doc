@@ -48,8 +48,10 @@ h3,
 h4,
 p,
 dl,
-div.figure p.caption,
-div.figure.inline {
+figure figcaption,
+figure.inline,
+ul li {
+    clear: both;
     font-weight: normal;
     padding-left: 60px;
 }
@@ -86,7 +88,16 @@ p.code code {
     background-color: #f6f6f6;
 }
 
-dt {
+ul li {
+    padding-bottom: 1em;
+}
+
+dl {
+    float: left;
+    width: 80%;
+}
+
+dl dt {
     width: 20%;
     float: left;
     clear: both;
@@ -94,7 +105,7 @@ dt {
     font-weight: normal;
 }
 
-dd {
+dl dd {
     width: 70%;
     float: right;
     margin-bottom: 1em;
@@ -111,19 +122,24 @@ table th {
     font-size: 0.75em;
 }
 
-div.figure {
+figure {
     padding: 1.5em 0;
+    margin: 0;
 }
 
-div.figure img {
+figure img {
     max-width: 100%;
 }
 
-div.figure p.caption {
+figure table {
+    margin-bottom: 1em;
+}
+
+figure figcaption {
     font-size: 0.75em;
 }
 
-div.figure.inline p.caption {
+figure.inline figcaption {
     padding-left: 0;
 }
 
@@ -176,7 +192,8 @@ div.chapter h3:before {
 }
 
 #toc,
-#toc ol {
+#toc ol,
+#figures {
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -186,7 +203,8 @@ div.chapter h3:before {
     padding-bottom: 1em;
 }
 
-#toc a:after {
+#toc a:after,
+#figures a:after {
     content: " " leader(".") " " target-counter(attr(href), page);
 }
 
@@ -336,9 +354,40 @@ function toc() {
     }
 }
 
+function figures() {
+
+    var captions = document.getElementsByTagName('figcaption'),
+        figures = document.getElementById('figures'),
+        i, caption, figure, li, a;
+
+    for (i = 0; i < captions.length; i++) {
+
+        caption = captions[i];
+        figure = caption.parentNode;
+
+        caption.innerHTML = 'Abb. ' + (i + 1) + ' ' + caption.innerHTML;
+
+        li = document.createElement('li');
+
+        a = document.createElement('a');
+        a.setAttribute('href', '#' + figure.getAttribute('id'));
+
+        a.appendChild(document.createTextNode(caption.innerHTML));
+
+        li.appendChild(a);
+        figures.appendChild(li); 
+    }
+}
+
+function init() {
+
+    figures();
+    toc();
+}
+
 </script>
 </head>
-<body onload="toc();">
+<body onload="init();">
 
 <div id="front">
 <p>
@@ -361,7 +410,7 @@ Fabian Vogler, <a href="mailto:fabian@lightningapp.ch">fabian@lightningapp.ch</a
 
 <div id="second">
 <h2>Inhaltsverzeichnis</h2>
-<ol id=toc></ol>
+<ol id="toc"></ol>
 </div>
 
 <div class="chapter">
@@ -395,14 +444,36 @@ gemeinsamen Nutzung von Listen. Ausarbeitung eines eigenen
 Authentifizierungsverfahren zwischen der iPhone-App und der Web-Applikation für 
 den geräteunabhängigen Zugriff auf die Listen.
 </p>
+
+<h3>Teaser</h3>
+<p>
+Der Teaser gibt einen Überblick über das Projekt und ist online zugänglich unter
+<a href="http://teaser.lightningapp.ch/">teaser.lightningapp.ch</a>. Um den
+Teaser auch noch etwas speziell zu machen, wurde eine Animation eingebaut.
+</p>
+
+<p>
+Die HTML-Seite des Teasers setzt sich aus einer kurzen Beschreibung des Projekts
+und einer Animation der App zusammen. Die Animation der App ist ein GIF, welches
+über die Abbilung eines iPhones gelegt ist, und zeigt den Start der App in 8
+Einzelbildern.
+</p>
+
+<figure id="figure-teaser">
+<img src="images/teaser.png" />
+<figcaption>Teaser im Web</figcaption>
+</figure>
 </div>
 
 <div class="chapter">
-<h2>Projektplanung</h2>
+<h2>Projektmanagement</h2>
 <p>
 TODO
 </p>
 
+<h3>Projektplanung</h3>
+
+<figure id="figure-gantt">
 <table>
     <colgroup>
         <col width="160" />
@@ -594,6 +665,8 @@ TODO
         </tr>
     </tbody>
 </table>
+<figcaption>Projektplanung</figcaption>
+</figure>
 
 </div>
 
@@ -605,10 +678,10 @@ eine Prozess notwendig, um die Verbindung mit dem Account herzustellen und den
 Zugriff auf diesen zu berechtigen.
 </p>
 
-<div class="figure">
+<figure id="figure-authentication">
 <img src="images/authentication.png" />
-<p class="caption">Abb. 1 Ablauf Authentifizierung</p>
-</div>
+<figcaption>Ablauf Authentifizierung</figcaption>
+</figure>
 
 <p>
 Jeder Account ist über eine einzigartige URL erreichbar. Diese URL kann in der
@@ -652,10 +725,10 @@ der Felder auf 16 würde zwar deutlich mehr Kombinationen ergeben (2^16 = 65 536
 jedoch leidet dann die Bedienung, da das Muster deutlich komplexer wird.
 </p>
 
-<div class="figure inline">
+<figure id="figure-tictactoe" class="inline">
 <img src="images/tic-tac-toe.png" width="300" height="270" />
-<p class="caption">Abb. 2 Authentifizierung mit Tic-Tac-Toe</p>
-</div>
+<figcaption>Authentifizierung mit Tic-Tac-Toe</figcaption>
+</figure>
 
 <p>
 Eine sichere und trotzdem einfache Alternative, die auch oft bei der
@@ -721,10 +794,10 @@ TODO
 <p>
 
 <h3>Entwicklung</h3>
-<div class="figure">
+<figure id="figure-deploy">
 <img src="images/deploy.svg" width="500" height="230" />
-<p class="caption">Abb. 2 Übersicht Ablauf Entwicklung</p>
-</div>
+<figcaption>Übersicht Ablauf Entwicklung</figcaption>
+</figure>
 
 <h4>
 Lokal
@@ -743,7 +816,8 @@ Source Code auch allen zugänglich ist, wird zudem der kostenlose Dienst GitHub
 eingesetzt.
 </p>
 <p>
-Um das Projekt auf einem Computer von Grund auf zu installieren genügen folgende Befehle:
+Um das Projekt auf einem Computer von Grund auf zu installieren genügen folgende
+Befehle:
 </p>
 <p class="code">
 <code>
@@ -811,6 +885,18 @@ manuell und programmatisch erstellt, teilweise jedoch auch mit Hilfe des Interfa
 	welche ein SQL Lite File zur Speicherung der Daten benutzt. Verschiedene API's stehen zur Verfügung um
 	die Daten zu mutieren.
 </p>
+<h4>Dependecy Management</h4>
+<p>
+	CocoaPods wurde eingesetzt um ein Dependecy Management für die App Entwicklung einzusetzen.
+	Verschiedene 
+</p>
+<p class="code">
+<code>
+	platform :ios, '6.0'<br />
+	<br />
+	pod 'AFNetworking', '~> 1.1.0'
+</code>
+</p>
 <h4>AFNetworking</h4>
 <p>
 	Zur Kommunikation mit dem Server wurde das AFNetworking Framework in der Version 1.1.0 eingesetzt.
@@ -843,20 +929,19 @@ manuell und programmatisch erstellt, teilweise jedoch auch mit Hilfe des Interfa
 	Abo's aufegforderet.
 </p>
 <p>Prinzipiell ist der Ablauf eines Kaufes wie folgt: Die App fragt bei einem Apple Server anhand einer speziellen
-	ID nach den Produkt informationen. Diese werden aufbereitet dem User dargestellt, siehe Abb. 4. Entscheided
+	ID nach den Produkt informationen. Diese werden aufbereitet dem User dargestellt, siehe Abb. 7. Entscheided
 	sich der User ein Abo zu kaufen wird dies dem Apple Server mitgeteilt und der Account des Users wird belastet.
 	Der App wird einen sogennanten "Kassenzettel" zur Validierung des Kaufes zu Verfügung gestellt.
 	Dieser Kassenzettel wird an unseren Server übermittellt, welcher wiederum mit einem Apple Server kommuniziert.
 	Durch diesen Ansatz kann eine Man-in-the-middle Attacke abgewehrt werden.</p>
-<div class="figure inline">
+<figure id="figure-in-app-purchase">
 	<img src="images/in_app_purchase.png" />
-	<p class="caption">Abb. 3 Ablauf eines In-App Kaufes</p>
-</div>
-<div class="figure inline">
+	<figcaption>Ablauf eines In-App Kaufes</figcaption>
+</figure>
+<figure id="figure-in-app-button">
 	<img src="images/in_app_button.png" height="600"/>
-	<p class="caption">Abb. 4 In-App Button für den Kauf</p>
-</div>
-
+	<figcaption>In-App Button für den Kauf</figcaption>
+</figure>
 
 <h3>Entwicklung</h3>
 
@@ -911,6 +996,10 @@ TODO
 <dt>Browser</dt>
 <dd>TODO</dd>
 </dl>
+
+<h3>Abbildungsverzeichnis</h3>
+
+<ul id="figures"></ul>
 
 </div>
 
