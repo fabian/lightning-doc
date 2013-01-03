@@ -814,11 +814,13 @@ Services, wie die Push Notification Infrastruktur von Apple.
 <h3>Dokumentation</h3>
 
 <p>
-Die Dokumentation wurde rein in HTML und CSS geschrieben. Das Inhalts- und
+Die Dokumentation wurde rein in HTML und CSS geschrieben. Das Inhalts- und das
 Abbildungsverzeichnis wurden dynamisch mit JavaScript generiert. Um die Seite
 auch korrekt ausdrucken zu können, wurde die Software
 <a href="http://www.princexml.com/">Prince</a> verwendet, welche HTML-Seiten
-in PDFs umwandelt.
+in PDFs umwandelt. Dadurch konnte diese Dokumentation gleich wie der Source-Code
+der Applikation selbst mit der Versionverwaltungssoftware Git verwaltet und über
+den Online-Service <a href="https://github.com/">GitHub</a> geteilt werden.
 </p>
 
 </div>
@@ -826,8 +828,8 @@ in PDFs umwandelt.
 <div class="chapter">
 <h2>Authentifizierung</h2>
 <p>
-Um von jedem beliebigen Gerät auf die eigenen Listen zugreifen zu können ist
-eine Prozess notwendig, um die Verbindung mit dem Account herzustellen und den 
+Um von jedem beliebigen Gerät auf die eigenen Listen zugreifen zu können, ist
+ein Prozess notwendig, um die Verbindung mit dem Account herzustellen und den 
 Zugriff auf diesen zu berechtigen.
 </p>
 
@@ -837,29 +839,31 @@ Zugriff auf diesen zu berechtigen.
 </figure>
 
 <p>
-Jeder Account ist über eine einzigartige URL erreichbar. Diese URL kann in der
-App angezeigt und per E-Mail versendet werden (Step 1).
+Step 1: Jeder Account ist über eine einzigartigen Link erreichbar. Dieser Link 
+kann in der App angezeigt und per E-Mail versendet werden. Da dieser Link
+immer gleich bleibt, kann er auch problemlos als Lesezeichen gespeichert werden.
 </p>
 
 <p>
-Beim Aufruf dieser URL auf einem Desktop-Browser erscheint die Login-Seite,
-von welcher der Authentifizierung-Prozess gestartet werden kann (Step 2).
+Step 2: Beim Aufruf des Links auf einem Desktop-Browser erscheint die Login-Seite,
+von welcher mit dem Klick auf einen Knopf der Authentifizierung-Prozess gestartet
+werden kann.
 </p>
 
 <p>
-Nachdem im Browser die Authentifizierung-Anfrage abgeschickt wurde, erhält das
-mobile Geräte eine Push-Nachricht. Die App bietet die Möglichkeit, die Anfrage
-zu ignorieren oder diese anzusehen (Step 3).
+Step 3: Nachdem im Browser die Authentifizierung-Anfrage abgeschickt wurde,
+erhält das mobile Geräte eine Push-Nachricht. Die App bietet die Möglichkeit,
+die Anfrage zu ignorieren oder diese anzusehen.
 </p>
 
 <p>
-Innerhalb der App muss dann der im Browser angezeigte Sicherheitscode eingegeben
-und bestätigt werden (Step 4).
+Step 4: Innerhalb der App muss dann der im Browser angezeigte Sicherheitscode
+eingegeben und bestätigt werden.
 </p>
 
 <p>
-Nachdem die Bestätigung des Sicherheitscodes in der App erfolgt ist, erscheinen
-im Browser automatisch die Listen des Accounts.
+Step 5: Nachdem die Bestätigung des Sicherheitscodes in der App erfolgt ist, erscheinen
+im Browser automatisch die Listen des Accounts. Der Benutzer kann dann diese an
 </p>
 
 <h3>Sicherheitscode</h3>
