@@ -888,7 +888,8 @@ manuell und programmatisch erstellt, teilweise jedoch auch mit Hilfe des Interfa
 <h4>Dependecy Management</h4>
 <p>
 	CocoaPods wurde eingesetzt um ein Dependecy Management für die App Entwicklung einzusetzen.
-	Verschiedene 
+	In einem File names PodFile werden die veschiedenen Abhängikeiten(pod) definiert. Es kann
+	auch die Version von iOS definiert werden.
 </p>
 <p class="code">
 <code>
@@ -896,6 +897,20 @@ manuell und programmatisch erstellt, teilweise jedoch auch mit Hilfe des Interfa
 	<br />
 	pod 'AFNetworking', '~> 1.1.0'
 </code>
+<p>
+	Nach dem das PodFile definiert ist können mit Hilfe des Befehls
+</p>
+<p class="code">
+<code>
+	pod install
+</code>
+</p>
+<p> die verschiedenen Abhängigkeiten installiert bzw. mit</p>
+<p class="code">
+<code>
+	pod update
+</code>
+<p>ein Update der Abhängigkeiten angestossen werden.</p>
 </p>
 <h4>AFNetworking</h4>
 <p>
