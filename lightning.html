@@ -738,6 +738,35 @@ Zahlenkombinationen bekannt sind, und bieten eine genügende Sicherheit mit 10^4
 = 10 000 Kombinationen.
 </p>
 
+<p>
+	Auf dem iPhone wird folgende View dargestellt sobald der User den Link aufruft.
+	Der User wird aufgeforderet die vierstellige Zahlenkombination einzugeben.
+</p>
+<figure id="figure-challenge" class="inline">
+	<img src="images/challenge.png" height="500" />
+	<figcaption>Challenge View auf dem iPhone</figcaption>
+</figure>
+
+<h3>Zwei-Faktor-Authentifizierung</h3>
+<p>Eine Zwei-Faktor-Authentifizierung setzt sich typischerweise aus Element die der User
+	kennt und die ein User besitzt zusammen.
+</p>
+
+<h4>Etwas was ein User kennt</h4>
+<p>Der User ist im Besitz einer eindeutigen URL, welcher nur er kennen sollte.
+</p>
+
+<h4>Etwas was ein User besitzt</h4>
+<p>Der User ist im Besitz der Lightning App auf seinem iPhone, welche eine Challenge 
+	erhalten wird.
+</p>
+
+<h4>Zwei-Faktor-Authentifizierung?</h4>
+<p>Der Zugriff auf das Web Interface ist durch eine Zwei-Faktor-Authentifizierung geschützt. Es besteht
+	aber keine "Strong"-Authentifizierung, weil die URL in der App dargestellt wird. Würde ein User
+	sein iPhone verlieren hätte ein fremder ebenfalls Zugriff auf das Web Interface.
+</p>
+
 </div>
 
 <div class="chapter">
@@ -881,8 +910,8 @@ Die App wurde nach dem Model-View-Controller Pattern umgesetzt. Dabei wurden die
 manuell und programmatisch erstellt, teilweise jedoch auch mit Hilfe des Interface Builders.
 </p>
 <h4>Persistenz</h4>
-<figure id="figure-erm">
-	<img src="images/erm.png" />
+<figure id="figure-erm" class="inline">
+	<img src="images/erm.png" height="200"/>
 	<figcaption>ERM</figcaption>
 </figure>
 <p>
@@ -935,7 +964,7 @@ manuell und programmatisch erstellt, teilweise jedoch auch mit Hilfe des Interfa
 	Apple bietet die Möglichkeit an, innerhalb von einer App einen sogennanten In-App Kauf zu tätigen.
 	Es gibt drei verschiedene Typen von Produkten:
 </p>
-<ul>
+<ul class="inline">
 	<li><strong>Konsumierbare</strong> Produkte, welche der User jedesmal kaufen muss falls er dieses
 		Produkt braucht.</li>
 	<li><strong>Nicht konsumierbare</strong> Produkte, kauft der User ein einziges Mal.
@@ -956,11 +985,11 @@ manuell und programmatisch erstellt, teilweise jedoch auch mit Hilfe des Interfa
 	Der App wird einen sogennanten "Kassenzettel" zur Validierung des Kaufes zu Verfügung gestellt.
 	Dieser Kassenzettel wird an unseren Server übermittellt, welcher wiederum mit einem Apple Server kommuniziert.
 	Durch diesen Ansatz kann eine Man-in-the-middle Attacke abgewehrt werden.</p>
-<figure id="figure-in-app-purchase">
+<figure id="figure-in-app-purchase" class="inline">
 	<img src="images/in_app_purchase.png" height="350"/>
 	<figcaption>Ablauf eines In-App Kaufes</figcaption>
 </figure>
-<figure id="figure-in-app-button">
+<figure id="figure-in-app-button" class="inline">
 	<img src="images/in_app_button.png" height="500"/>
 	<figcaption>In-App Button für den Kauf</figcaption>
 </figure>
@@ -992,7 +1021,7 @@ TestFlight bietet die Möglichkeit die App einfach an verschiedene Tester zu ver
 Tester müssen sich über ein Link registrieren und erhalten danach die Möglichkeit die App zu installieren. In der App
 haben die Tester die Möglichkeit Feedback an die Entwickler zu senden.
 </p>
-<figure id="figure-testflight-feedback">
+<figure id="figure-testflight-feedback" class="inline">
 	<img src="images/testflight-feedback.png" height="500"/>
 	<figcaption>Feedback Button für die Entwickler</figcaption>
 </figure>
