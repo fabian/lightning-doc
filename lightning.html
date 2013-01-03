@@ -49,7 +49,9 @@ h4,
 p,
 dl,
 figure figcaption,
-figure.inline {
+figure.inline,
+ul li {
+    clear: both;
     font-weight: normal;
     padding-left: 60px;
 }
@@ -86,7 +88,16 @@ p.code code {
     background-color: #f6f6f6;
 }
 
-dt {
+ul li {
+    padding-bottom: 1em;
+}
+
+dl {
+    float: left;
+    width: 80%;
+}
+
+dl dt {
     width: 20%;
     float: left;
     clear: both;
@@ -94,7 +105,7 @@ dt {
     font-weight: normal;
 }
 
-dd {
+dl dd {
     width: 70%;
     float: right;
     margin-bottom: 1em;
@@ -177,7 +188,8 @@ div.chapter h3:before {
 }
 
 #toc,
-#toc ol {
+#toc ol,
+#figures {
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -187,7 +199,8 @@ div.chapter h3:before {
     padding-bottom: 1em;
 }
 
-#toc a:after {
+#toc a:after,
+#figures a:after {
     content: " " leader(".") " " target-counter(attr(href), page);
 }
 
@@ -340,14 +353,25 @@ function toc() {
 function figures() {
 
     var captions = document.getElementsByTagName('figcaption'),
-        i, caption, id;
+        figures = document.getElementById('figures'),
+        i, caption, figure, li, a;
 
     for (i = 0; i < captions.length; i++) {
-    
+
         caption = captions[i];
-        id = 'figure-' + i;
+        figure = caption.parentNode;
 
         caption.innerHTML = 'Abb. ' + (i + 1) + ' ' + caption.innerHTML;
+
+        li = document.createElement('li');
+
+        a = document.createElement('a');
+        a.setAttribute('href', '#' + figure.getAttribute('id'));
+
+        a.appendChild(document.createTextNode(caption.innerHTML));
+
+        li.appendChild(a);
+        figures.appendChild(li); 
     }
 }
 
@@ -894,6 +918,10 @@ TODO
 <dt>Browser</dt>
 <dd>TODO</dd>
 </dl>
+
+<h3>Abbildungsverzeichnis</h3>
+
+<ul id="figures"></ul>
 
 </div>
 
