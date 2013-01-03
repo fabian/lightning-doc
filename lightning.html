@@ -23,6 +23,10 @@
         font-size: 1em;
         color: #aaa;
     }
+
+    @footnotes {
+        margin-bottom: -13mm;
+    }
 }
 
 html { 
@@ -143,8 +147,27 @@ figure.inline figcaption {
     padding-left: 0;
 }
 
+a[href^="http"]:after {
+    content: attr(href);
+    float: footnote;
+    margin-left: 60px;
+    counter-increment: footnote;
+    font-size: 0.75em;
+    footnote-style-position: inside;
+}
+
+a[href^="http"]:after::footnote-call {
+    content: " [" counter(footnote) "]";
+    font-size: 1.3em;
+}
+
+a[href^="http"]:after::footnote-marker {
+    content: "[" counter(footnote) "] ";
+}
+
 div.chapter {
     counter-increment: chapter;
+    counter-reset: footnote;
     page-break-before: always;
     margin-top: 3em;
 }
@@ -240,6 +263,10 @@ div.chapter h3:before {
 
     a {
         color: #1b60a7;
+    }
+
+    a[href^="http"]:after {
+        display: none;
     }
 
     #front h1 {
