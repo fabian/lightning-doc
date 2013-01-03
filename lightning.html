@@ -952,7 +952,7 @@ TODO
 Lokal
 </h4>
 <p>
-Entwickelt wird die Applikation lokal auf dem Computer der Schüler.
+Entwickelt wird die Applikation lokal auf dem Computer des Entwicklers.
 Die Installationstionsvoraussetzungen sind minimal und werden mit den meisten
 modernen, unixähnlichen Betriebssystemen (wie z.B. Mac OS X) mitgeliefert.
 Konkret wird nur PHP ab Version 5.3 vorausgesetzt - auf Windows kann dieses auch
@@ -994,24 +994,41 @@ und löst per Webhook die Ausführung der Unit-Tests auf Travis-CI sowie die
 </p>
 
 <h4>
-PHP Automated Review
+Automated Code Reviews
 </h4>
 <p>
-TODO
+Der kostenlose Dienst
+<a href="http://jmsyst.com/automated-code-reviews/">Automated Code Reviews for
+PHP</a> überprüft für Open-Source-Projekte, welche auf GitHub
+gehostet sind, die Einhaltung von Konventionen und sucht automatisch nach
+typischen Programmierfehlern im Code, indem es den Code statisch analysiert.
+Werden Fehler gefunden, erhält der Entwickler ein E-Mail mit den gefundenen
+Fehlern. Zudem erstellt der Dienst selbständig Pull Requests mit
+Korrekturvorschlägen.
 </p>
 
 <h4>
 Travis CI
 </h4>
 <p>
-TODO, PHPUnit, PHPCS
+Ebenfalls kostenlos für Open-Source-Projekte ist der Continious-Integration-
+Service <a href="https://travis-ci.org/">Travis CI</a>. Bei jedem Commit wird
+auf dem Travis-Server eine virtuelle Maschine gestartet und das Projekt
+installiert. Dann werden die Unit Tests mit PHPUnit ausgeführt und die Coding
+Guidelines mit PHPCS überprüft. Nur wenn beide Prüfungen erfolgreich waren, wird
+der Zustand der Web-Applikation als stabil erachtet und das Deployment
+angestossen. Ansonsten erhält der Entwickler wiederum ein E-Mail mit einem
+Hinweis auf den Fehler.
 </p>
 
 <h4>
 Padoga Box
 </h4>
 <p>
-TODO
+<a href="https://pagodabox.com/">Padoga Box</a> bietet einen skalierbaren
+Webserver für PHP-Applikationen (Cloud-Hosting). Eine einzelne Server-Instanz
+kann kostenlos betrieben werden, steigt die Benutzeranzahl, kann einfach gegen
+eine Gebühr die Anzahl der Server erhöht werden.
 </p>
 
 </div>
@@ -1180,6 +1197,12 @@ Dies vereinfacht die Suche nach Fehler in der Applikation und der Einfluss auf d
 <dt>Desktop</dt>
 <dd>TODO</dd>
 <dt>Browser</dt>
+<dd>TODO</dd>
+<dt>Webhook</dt>
+<dd>TODO</dd>
+<dt>Pull Request</dt>
+<dd>TODO</dd>
+<dt>Continious Integration</dt>
 <dd>TODO</dd>
 </dl>
 
