@@ -47,7 +47,9 @@ h2,
 h3,
 h4,
 p,
-dl {
+dl,
+div.figure p.caption,
+div.figure.inline {
     font-weight: normal;
     padding-left: 60px;
 }
@@ -119,7 +121,10 @@ div.figure img {
 
 div.figure p.caption {
     font-size: 0.75em;
-    padding-left: 60px;
+}
+
+div.figure.inline p.caption {
+    padding-left: 0;
 }
 
 div.chapter {
@@ -641,25 +646,23 @@ gewissen Anforderungen entspricht.
 
 <p>
 Die anfängliche Idee eines Tic-Tac-Toes wurde verworfen, da es zuwenig mögliche
-Kombinationen gibt und zu einfach zu knacken wäre.
+Kombinationen gibt und zu einfach zu knacken wäre. Durch die 2 möglichen Werte
+der 9 Felder ergäben sich nur 2^9 = 512 Kombinationen. Eine Erhöhung der Anzahl
+der Felder auf 16 würde zwar deutlich mehr Kombinationen ergeben (2^16 = 65 536),
+jedoch leidet dann die Bedienung, da das Muster deutlich komplexer wird.
 </p>
 
-<p class="code">
-<code>
-2 Möglichkeiten ^ 9 Numbers = 512 Kombinationen
-</code>
-</p>
+<div class="figure inline">
+<img src="images/tic-tac-toe.png" width="300" height="270" />
+<p class="caption">Abb. 2 Authentifizierung mit Tic-Tac-Toe</p>
+</div>
 
 <p>
 Eine sichere und trotzdem einfache Alternative, die auch oft bei der
 Authentifizierung im E-Banking verwendet wird, ist eine vierstellige
-Zahlenkombination.
-</p>
-
-<p class="code">
-<code>
-10 Digits ^ 4 Nummern = 10 000 Kombinationen
-</code>
+Zahlenkombination. Diese kann leicht eingegeben werden, da den meisten Benutzern
+Zahlenkombinationen bekannt sind, und bieten eine genügende Sicherheit mit 10^4 
+= 10 000 Kombinationen.
 </p>
 
 </div>
