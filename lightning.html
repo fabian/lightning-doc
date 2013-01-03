@@ -48,8 +48,8 @@ h3,
 h4,
 p,
 dl,
-div.figure p.caption,
-div.figure.inline {
+figure figcaption,
+figure.inline {
     font-weight: normal;
     padding-left: 60px;
 }
@@ -111,19 +111,20 @@ table th {
     font-size: 0.75em;
 }
 
-div.figure {
+figure {
     padding: 1.5em 0;
+    margin: 0;
 }
 
-div.figure img {
+figure img {
     max-width: 100%;
 }
 
-div.figure p.caption {
+figure figcaption {
     font-size: 0.75em;
 }
 
-div.figure.inline p.caption {
+figure.inline figcaption {
     padding-left: 0;
 }
 
@@ -336,9 +337,29 @@ function toc() {
     }
 }
 
+function figures() {
+
+    var captions = document.getElementsByTagName('figcaption'),
+        i, caption, id;
+
+    for (i = 0; i < captions.length; i++) {
+    
+        caption = captions[i];
+        id = 'figure-' + i;
+
+        caption.innerHTML = 'Abb. ' + (i + 1) + ' ' + caption.innerHTML;
+    }
+}
+
+function init() {
+
+    toc();
+    figures();
+}
+
 </script>
 </head>
-<body onload="toc();">
+<body onload="init();">
 
 <div id="front">
 <p>
@@ -412,7 +433,7 @@ Einzelbildern.
 
 <figure>
 <img src="images/teaser.png" />
-<figcaption>Abb. 1 Teaser im Web</p>
+<figcaption>Teaser im Web</p>
 </div>
 </div>
 
@@ -624,10 +645,10 @@ eine Prozess notwendig, um die Verbindung mit dem Account herzustellen und den
 Zugriff auf diesen zu berechtigen.
 </p>
 
-<div class="figure">
+<figure>
 <img src="images/authentication.png" />
-<p class="caption">Abb. 1 Ablauf Authentifizierung</p>
-</div>
+<figcaption>Ablauf Authentifizierung</figcaption>
+</figure>
 
 <p>
 Jeder Account ist über eine einzigartige URL erreichbar. Diese URL kann in der
@@ -671,10 +692,10 @@ der Felder auf 16 würde zwar deutlich mehr Kombinationen ergeben (2^16 = 65 536
 jedoch leidet dann die Bedienung, da das Muster deutlich komplexer wird.
 </p>
 
-<div class="figure inline">
+<figure class="inline">
 <img src="images/tic-tac-toe.png" width="300" height="270" />
-<p class="caption">Abb. 2 Authentifizierung mit Tic-Tac-Toe</p>
-</div>
+<figcaption>Authentifizierung mit Tic-Tac-Toe</figcaption>
+</figure>
 
 <p>
 Eine sichere und trotzdem einfache Alternative, die auch oft bei der
@@ -740,10 +761,10 @@ TODO
 <p>
 
 <h3>Entwicklung</h3>
-<div class="figure">
+<figure>
 <img src="images/deploy.svg" width="500" height="230" />
-<p class="caption">Abb. 2 Übersicht Ablauf Entwicklung</p>
-</div>
+<figcaption>Übersicht Ablauf Entwicklung</figcaption>
+</figure>
 
 <h4>
 Lokal
