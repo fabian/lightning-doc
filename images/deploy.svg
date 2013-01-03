@@ -1,10 +1,10 @@
 <svg height="230" version="1.1" width="500" viewBox="0 0 500 230" xmlns="http://www.w3.org/2000/svg">
-	<ellipse cx="70" cy="12" rx="5" ry="5" fill="#ffffff" stroke="#126396" fill-opacity="1" stroke-width="2"></ellipse>
-	<ellipse cx="70" cy="53" rx="5" ry="5" fill="#ffffff" stroke="#126396" fill-opacity="1" stroke-width="2"></ellipse>
-	<ellipse cx="85" cy="94" rx="5" ry="5" fill="#ffffff" stroke="#126396" fill-opacity="1" stroke-width="2"></ellipse>
-	<ellipse cx="70" cy="135" rx="5" ry="5" fill="#ffffff" stroke="#126396" fill-opacity="1" stroke-width="2"></ellipse>
-	<ellipse cx="70" cy="176" rx="5" ry="5" fill="#ffffff" stroke="#126396" fill-opacity="1" stroke-width="2"></ellipse>
-	<ellipse cx="70" cy="217" rx="5" ry="5" fill="#ffffff" stroke="#126396" fill-opacity="1" stroke-width="2"></ellipse>
+	<ellipse cx="70" cy="12" rx="5" ry="5" fill="#ffffff" stroke="#111" fill-opacity="1" stroke-width="2"></ellipse>
+	<ellipse cx="70" cy="53" rx="5" ry="5" fill="#ffffff" stroke="#111" fill-opacity="1" stroke-width="2"></ellipse>
+	<ellipse cx="85" cy="94" rx="5" ry="5" fill="#ffffff" stroke="#111" fill-opacity="1" stroke-width="2"></ellipse>
+	<ellipse cx="70" cy="135" rx="5" ry="5" fill="#ffffff" stroke="#111" fill-opacity="1" stroke-width="2"></ellipse>
+	<ellipse cx="70" cy="176" rx="5" ry="5" fill="#ffffff" stroke="#111" fill-opacity="1" stroke-width="2"></ellipse>
+	<ellipse cx="70" cy="217" rx="5" ry="5" fill="#ffffff" stroke="#111" fill-opacity="1" stroke-width="2"></ellipse>
 	<path fill="none" stroke="#444444" d="M70,18C70,32,70,32,70,47" stroke-width="2"></path>
 	<path fill="none" stroke="#444444" d="M70,59C70,73,85,73,85,88" stroke-width="2"></path>
 	<path fill="none" stroke="#444444" d="M70,59C70,94,70,94,70,129" stroke-width="2"></path>
