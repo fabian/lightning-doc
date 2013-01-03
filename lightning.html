@@ -798,8 +798,46 @@ TODO
 
 <h3>Architektur</h3>
 <p>
-Objective-C
+Die iPhone App wurde nativ mit Objective-C umgesetzt. iOS 6 wird vorrausgesetzt was den Vorteil
+von neuen und aktuellen API's mit sich bringt.
+</p>
+<h4>Model-View-Controller</h4>
 <p>
+Die App wurde nach dem Model-View-Controller Pattern umgesetzt. Dabei wurden die meisten GUI's
+manuell und programmatisch erstellt, teilweise jedoch auch mit Hilfe des Interface Builders.
+</p>
+<p>
+	Für die Persistenz der Daten wurde CoreData eingesetzt. CoreData ist eine Objektrelationale Daten,
+	welche ein SQL Lite File zur Speicherung der Daten benutzt. Verschiedene API's stehen zur Verfügung um
+	die Daten zu mutieren.
+</p>
+<h4>AFNetworking</h4>
+<p>
+	Zur Kommunikation mit dem Server wurde das AFNetworking Framework in der Version 1.1.0 eingesetzt.
+	AFNetworking hat sich in der Community beliebt gemacht, weil es sehr klein und nahe an der API
+	von Apple ist. Das Framework wurde stark auf REST Webservices ausgelegt und bietet die
+	entsprechenden Funktionalitäten von Haus aus an.
+</p>
+<h4>In-App Kauf</h4>
+<p>
+	Gewisse Funktionalität in der App wird nur durch den Kauf eines Jahres-Abo von 1.- Sfr. freigeschaltet. 
+	Dies umfasst das Teilen von Listen, die Speicherung der Daten in der "Cloud" und die Benutzung des
+	Web Interfaces.
+</p>
+<p>
+	Apple bietet die Möglichkeit an, innerhalb von einer App einen sogennanten In-App Kauf zu tätigen.
+	Es gibt drei verschiedene Typen von Produkten:
+	<ul>
+		<li><strong>Konsumierbare</strong> Produkte, welche der User jedesmal kaufen muss falls er dieses
+			Produkt braucht.</li>
+		<li><strong>Nicht konsumierbare</strong> Produkte, kauft der User ein einziges Mal.
+			Entsprechend werden durch StoreKit(API von Apple) Möglichkeiten zur Wiederherstellung angeboten.</li>
+		<li><strong>Automatische verlängernde Abos</strong> werden nur für die App Newstand und darin
+			enthaltene Magazine angeboten.</li>
+	</ul>
+	Leider werden die automatisch
+</p>
+
 
 <h3>Entwicklung</h3>
 
