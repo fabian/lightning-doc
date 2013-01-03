@@ -124,6 +124,7 @@ table th {
     padding: 0.2em 0.4em;
     border: 1px solid #ddd;
     font-size: 0.75em;
+    text-align: left;
 }
 
 figure {
@@ -502,17 +503,20 @@ Einzelbildern.
 
 <div class="chapter">
 <h2>Projektmanagement</h2>
-<p>
-TODO
-</p>
 
 <h3>Projektteam</h3>
-<p>Das Projektteam setzt sich aus Fabian Vogler und Cyril Gabathuler zusammen. Fabian Vogler ist für
-	die API und das Web Interface verantwortlich und Cyril Gabathuler hat die Verantworung für die 
-	iPhone App übernommen.
+<p>
+Das Projektteam setzt sich aus Fabian Vogler und Cyril Gabathuler zusammen. 
+Fabian Vogler ist für die API und das Web Interface verantwortlich und Cyril 
+Gabathuler hat die Verantworung für die iPhone App übernommen.
 </p>
 
 <h3>Projektplanung</h3>
+
+<p>
+Der folgende Projektplan gibt einen Überblick über den Ablauf des Projekts
+und dessen wichtigsten Meilensteine.
+</p>
 
 <figure id="figure-gantt">
 <table>
@@ -710,6 +714,13 @@ TODO
 </figure>
 
 <h3>Aufwand</h3>
+
+<p>
+Laut Regelment sollte der Aufwand pro Student 75h betragen. Entsprechend wurde 
+die Plannung darauf ausgelegt. Grosse Hindernisse waren unter anderem externe 
+Services, wie die Push Notification Infrastruktur von Apple.
+</p>
+
 <figure id="figure-aufwand" class="inline">
 	<table>
 	    <colgroup>
@@ -813,13 +824,17 @@ TODO
 			</tr>
 		</tbody>
 	</table>
-	<figcaption>Soll / Ist Vergleich</figcaption>
+	<figcaption>Soll / Ist Vergleich Aufwand</figcaption>
 </figure>
 
+<h3>Dokumentation</h3>
+
 <p>
-	Laut Regelment sollte der Aufwand pro Student 75h betragen. Entsprechend wurde die Plannung
-	darauf ausgelegt. Grosse Hindernisse waren unter anderem externe Services, wie die Push Notification Infrastruktur
-	von Apple.
+Die Dokumentation wurde rein in HTML und CSS geschrieben. Das Inhalts- und
+Abbildungsverzeichnis wurden dynamisch mit JavaScript generiert. Um die Seite
+auch korrekt ausdrucken zu können, wurde die Software
+<a href="http://www.princexml.com/">Prince</a> verwendet, welche HTML-Seiten
+in PDFs umwandelt.
 </p>
 
 </div>
