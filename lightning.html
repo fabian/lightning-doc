@@ -1076,13 +1076,13 @@ manuell und programmatisch erstellt, teilweise jedoch auch mit Hilfe des Interfa
 <p>
 </p>
 <p>
-	Für die Persistenz der Daten wurde CoreData eingesetzt. CoreData ist eine Objektrelationale Daten,
+	Für die Persistenz der Daten wurde CoreData eingesetzt. CoreData ist eine Objektrelationale Datenbank,
 	welche ein SQL Lite File zur Speicherung der Daten benutzt. Verschiedene API's stehen zur Verfügung um
 	die Daten zu mutieren.
 </p>
 <h4>Dependecy Management</h4>
 <p>
-	CocoaPods wurde eingesetzt um ein Dependecy Management für die App Entwicklung einzusetzen.
+	<a href="http://cocoapods.org">CocoaPods</a> wurde eingesetzt um ein Dependecy Management für die App Entwicklung einzusetzen.
 	In einem File names PodFile werden die veschiedenen Abhängikeiten(pod) definiert. Es kann
 	auch die Version von iOS definiert werden.
 </p>
@@ -1108,7 +1108,7 @@ manuell und programmatisch erstellt, teilweise jedoch auch mit Hilfe des Interfa
 <p>ein Update der Abhängigkeiten angestossen werden.</p>
 <h4>AFNetworking</h4>
 <p>
-	Zur Kommunikation mit dem Server wurde das AFNetworking Framework in der Version 1.1.0 eingesetzt.
+	Zur Kommunikation mit dem Server wurde das <a href="http://afnetworking.com">AFNetworking</a> Framework in der Version 1.1.0 eingesetzt.
 	AFNetworking hat sich in der Community beliebt gemacht, weil es sehr klein und nahe an der API
 	von Apple ist. Das Framework wurde stark auf REST Webservices ausgelegt und bietet die
 	entsprechenden Funktionalitäten von Haus aus an.
@@ -1148,7 +1148,7 @@ manuell und programmatisch erstellt, teilweise jedoch auch mit Hilfe des Interfa
 	Durch diesen Ansatz kann eine Man-in-the-middle Attacke abgewehrt werden.</p>
 <figure id="figure-in-app-purchase" class="inline">
 	<img src="images/in_app_purchase.png" height="350"/>
-	<figcaption>Ablauf eines In-App Kaufes</figcaption>
+	<figcaption>Ablauf eines In-App Kaufes (Bild von <a href="https://developer.apple.com/library/ios/#documentation/NetworkingInternet/Conceptual/StoreKitGuide/APIOverview/OverviewoftheStoreKitAPI.html#//apple_ref/doc/uid/TP40008267-CH100-SW1">Apple</a>)</figcaption>
 </figure>
 <figure id="figure-in-app-button" class="inline">
 	<img src="images/in_app_button.png" height="500"/>
@@ -1169,7 +1169,7 @@ manuell und programmatisch erstellt, teilweise jedoch auch mit Hilfe des Interfa
 
 <h4>Jenkins CI</h4>
 <p>
-	Jenkins wird verwendet um die App kontinuierlich zu builden. Es wurde ein Job definiert, welcher der Build
+	<a href="http://jenkins-ci.org">Jenkins</a> wird verwendet um die App kontinuierlich zu builden. Es wurde ein Job definiert, welcher der Build
 	Prozess anstösst sobald ein Änderung auf github gepusht worden ist. Das Ergebnis eines Builds ist ein sogennantes
 	IPA File. Dieses enthählt die App an sich. Dieses File wird direkt auf TestFlight hochgeladen.
 </p>
@@ -1178,7 +1178,7 @@ manuell und programmatisch erstellt, teilweise jedoch auch mit Hilfe des Interfa
 TestFlight
 </h4>
 <p>
-TestFlight bietet die Möglichkeit die App einfach an verschiedene Tester zu verteilen und Feedback einzusammeln.
+<a href="http://testflightapp.com">TestFlight</a> bietet die Möglichkeit die App einfach an verschiedene Tester zu verteilen und Feedback einzusammeln.
 Tester müssen sich über ein Link registrieren und erhalten danach die Möglichkeit die App zu installieren. In der App
 haben die Tester die Möglichkeit Feedback an die Entwickler zu senden.
 </p>
@@ -1191,7 +1191,7 @@ haben die Tester die Möglichkeit Feedback an die Entwickler zu senden.
 Crashlytics
 </h4>
 <p>
-Um Abstürze während der Testphase zu dokumentieren wurde das Framework Crashlytics eingesetzt. Sollte die App
+Um Abstürze während der Testphase zu dokumentieren wurde das Framework <a href="https://www.crashlytics.com">Crashlytics</a> eingesetzt. Sollte die App
 abstürzen wird ein Log file erstellt, welches in einem Web Interface von Crashlytics dargestellt wird.
 Dies vereinfacht die Suche nach Fehler in der Applikation und der Einfluss auf die User kann gemessen werden.
 </p>
