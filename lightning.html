@@ -493,7 +493,7 @@ Teaser auch noch etwas speziell zu machen, wurde eine Animation eingebaut.
 <p>
 Die HTML-Seite des Teasers setzt sich aus einer kurzen Beschreibung des Projekts
 und einer Animation der App zusammen. Die Animation der App ist ein GIF, welches
-über die Abbilung eines iPhones gelegt ist, und zeigt den Start der App in 8
+über die Abbildung eines iPhones gelegt ist, und zeigt den Start der App in 8
 Einzelbildern.
 </p>
 
@@ -510,7 +510,7 @@ Einzelbildern.
 <p>
 Das Projektteam setzt sich aus Fabian Vogler und Cyril Gabathuler zusammen. 
 Fabian Vogler ist für die API und das Web Interface verantwortlich und Cyril 
-Gabathuler hat die Verantworung für die iPhone App übernommen.
+Gabathuler hat die Verantwortung für die iPhone App übernommen.
 </p>
 
 <h3>Projektplanung</h3>
@@ -718,8 +718,8 @@ und dessen wichtigsten Meilensteine.
 <h3 class="break">Aufwand</h3>
 
 <p>
-Laut Regelment sollte der Aufwand pro Student 75h betragen. Entsprechend wurde 
-die Plannung darauf ausgelegt. Grosse Hindernisse waren unter anderem externe 
+Laut Reglement sollte der Aufwand pro Student 75h betragen. Entsprechend wurde 
+die Planung darauf ausgelegt. Grosse Hindernisse waren unter anderem externe 
 Services, wie die Push Notification Infrastruktur von Apple.
 </p>
 
@@ -893,7 +893,7 @@ gewissen Anforderungen entspricht.
 </p>
 
 <p>
-Die anfängliche Idee eines Tic-Tac-Toes wurde verworfen, da es zuwenig mögliche
+Die anfängliche Idee eines Tic-Tac-Toes wurde verworfen, da es zu wenig mögliche
 Kombinationen gibt und zu einfach zu knacken wäre. Durch die 2 möglichen Werte
 der 9 Felder ergäben sich nur 2^9 = 512 Kombinationen. Eine Erhöhung der Anzahl
 der Felder auf 16 würde zwar deutlich mehr Kombinationen ergeben (2^16 = 65 536),
@@ -915,7 +915,7 @@ Zahlenkombinationen bekannt sind, und bieten eine genügende Sicherheit mit 10^4
 
 <p>
     Auf dem iPhone wird folgende View dargestellt sobald der User den Link aufruft.
-    Der User wird aufgeforderet die vierstellige Zahlenkombination einzugeben.
+    Der User wird aufgefordert die vierstellige Zahlenkombination einzugeben.
 </p>
 <figure id="figure-challenge" class="inline">
     <img src="images/challenge.png" height="500" />
@@ -953,9 +953,9 @@ iPhone verlieren hätte ein Fremder ebenfalls Zugriff auf das Web Interface.
 <h3>Architektur</h3>
 
 <p>
-Die Applikation befolgt die grunsätzlichen Prinzipien zweier moderner
+Die Applikation befolgt die grundsätzlichen Prinzipien zweier moderner
 Software-Architekturen. Zum einen die Model–View–Controller-Architektur als Basis
-für den Aufbau der Software, zum anderen die REST-Architetkur, welche die
+für den Aufbau der Software, zum anderen die REST-Architektur, welche die
 Struktur der API vorgibt.
 </p>
 
@@ -982,8 +982,8 @@ Business-Logik zusammen. Es besteht aus den Klassen in den Paketen
 <p>
 Die View ist für die Darstellung der Daten zuständig. Sie
 entscheidet basierend auf der Anfrage des Benutzers, in welcher Form die Daten
-dargestellt werden. Diese Funktion wird in der API haupstächlich durch das
-Symfony Bundle names 
+dargestellt werden. Diese Funktion wird in der API hauptsächlich durch das
+Symfony Bundle namens 
 <a href="https://github.com/FriendsOfSymfony/FOSRestBundle">FOSRestBundle</a>
 erledigt, welches die Daten des Controllers gemäss dem HTTP-Header
 <code>Accept</code> entweder in JSON oder XML zurückgibt.
@@ -1093,7 +1093,7 @@ Hinweis auf den Fehler.
 </p>
 
 <p>
-Die Code Coverage von Unit Tests ist immer mit Vorsicht zu geniesen ist, da keine
+Die Code Coverage von Unit Tests ist immer mit Vorsicht zu geniessen ist, da keine
 Aussage über die Wichtigkeit der getesteten Teile gemacht werden kann. Dennoch
 konnte in den meisten Paketen eine Abdeckung von über 90% erreicht werden.
 </p>
@@ -1131,7 +1131,7 @@ dessen Signatur anhand eines geheimen Tokens und führt dann das Deployment durc
 
 <h3>Architektur</h3>
 <p>
-Die iPhone App wurde nativ mit Objective-C umgesetzt. iOS 6 wird vorrausgesetzt was den Vorteil
+Die iPhone App wurde nativ mit Objective-C umgesetzt. iOS 6 wird vorausgesetzt was den Vorteil
 von neuen und aktuellen API's mit sich bringt.
 </p>
 <h4>Model-View-Controller</h4>
@@ -1154,7 +1154,7 @@ manuell und programmatisch erstellt, teilweise jedoch auch mit Hilfe des Interfa
 <h4>Dependecy Management</h4>
 <p>
     <a href="http://cocoapods.org">CocoaPods</a> wurde eingesetzt um ein Dependecy Management für die App Entwicklung einzusetzen.
-    In einem File names <code>PodFile</code> werden die veschiedenen Abhängikeiten(pod) definiert. Es kann
+    In einem File names <code>PodFile</code> werden die verschiedenen Abhängigkeiten (pod) definiert. Es kann
     auch die Version von iOS definiert werden.
 </p>
 <p class="code">
@@ -1191,11 +1191,11 @@ manuell und programmatisch erstellt, teilweise jedoch auch mit Hilfe des Interfa
     Web Interfaces.
 </p>
 <p>
-    Apple bietet die Möglichkeit an, innerhalb von einer App einen sogennanten In-App Kauf zu tätigen.
+    Apple bietet die Möglichkeit an, innerhalb von einer App einen sogenannten In-App Kauf zu tätigen.
     Es gibt drei verschiedene Typen von Produkten:
 </p>
 <p>
-    <strong>Konsumierbare</strong> Produkte, welche der User jedesmal kaufen muss falls er dieses
+    <strong>Konsumierbare</strong> Produkte, welche der User jedes Mal kaufen muss falls er dieses
     Produkt braucht.
 </p>
 <p><strong>Nicht konsumierbare</strong> Produkte, kauft der User ein einziges Mal.
@@ -1206,16 +1206,16 @@ manuell und programmatisch erstellt, teilweise jedoch auch mit Hilfe des Interfa
 </p>
 <p>
     Wie bereits erwähnt lassen sich automatisch verlängernde Abos nur für gewissen Typen von App's einsetzen.
-    Daher wurde mit Hilfe von konsumierbaren Produkten versucht ein Abo zu immitieren. Ab Kaufdatum kann der
+    Daher wurde mit Hilfe von konsumierbaren Produkten versucht ein Abo zu imitieren. Ab Kaufdatum kann der
     User 1 Jahr mit dem Server kommunizieren. Entsprechend wird er vor Ablauf des Jahres zur Verlängerung des
-    Abo's aufgforderet.
+    Abo's aufgefordert.
 </p>
 <p>Prinzipiell ist der Ablauf eines Kaufes wie folgt: Die App fragt bei einem Apple Server anhand einer speziellen
     ID nach den Produktinformationen. Diese werden aufbereitet dem User dargestellt, siehe
     <a href="#figure-in-app-button">In-App Button für den Kauf</a>. Entscheidend
     sich der User ein Abo zu kaufen wird dies dem Apple Server mitgeteilt und der Account des Users wird belastet.
-    Der App wird einen sogennanten «Kassenzettel» zur Validierung des Kaufes zu Verfügung gestellt.
-    Dieser Kassenzettel wird an die Server von lightningapp.ch übermittellt, welche wiederum mit einem Apple Server kommuniziert.
+    Der App wird einen sogenannten «Kassenzettel» zur Validierung des Kaufes zu Verfügung gestellt.
+    Dieser Kassenzettel wird an die Server von lightningapp.ch übermittelt, welche wiederum mit einem Apple Server kommuniziert.
     Durch diesen Ansatz kann eine Man-in-the-middle Attacke abgewehrt werden.</p>
 <figure id="figure-in-app-purchase" class="inline">
     <img src="images/in_app_purchase.png" width="300" />
@@ -1244,14 +1244,14 @@ manuell und programmatisch erstellt, teilweise jedoch auch mit Hilfe des Interfa
 
 <h4>GitHub</h4>
 <p>
-    Der Sourcecode wird auf GitHub in einem privaten Repository gehalten. Zugang haben nur die Entwickler. Über einen Webhook wird der Build Prozess
+    Der Source-Code wird auf GitHub in einem privaten Repository gehalten. Zugang haben nur die Entwickler. Über einen Webhook wird der Build Prozess
     für den Jenkins angestossen (Schritt 1).
 </p>
 
 <h4>Jenkins CI</h4>
 <p>
     <a href="http://jenkins-ci.org">Jenkins</a> wird verwendet um die App kontinuierlich zu builden. Es wurde ein Job definiert, welcher der Build
-    Prozess anstösst sobald ein Änderung auf GitHub gepusht worden ist. Das Ergebnis eines Builds ist ein sogennantes
+    Prozess anstösst sobald ein Änderung auf GitHub gepusht worden ist. Das Ergebnis eines Builds ist ein sogenanntes 
     IPA File (Schritt 2). Dieses enthält die App an sich. Dieses File wird direkt auf TestFlight hochgeladen (Schritt 3).
 </p>
 
@@ -1304,7 +1304,7 @@ nicht einfacher gemacht, sondern um weitere Komponenten erweitert.
 </p>
 
 <p>
-	Die Herrausforderung eine App zu entwickeln, welche mit einem Server im Internet
+	Die Herausforderung eine App zu entwickeln, welche mit einem Server im Internet
 	kommuniziert konnte gemeistert werden. Neue Technologien und Services konnten integriert werden,
 	um eine «State of the Art»-App zu entwickeln.
 </p>
@@ -1373,7 +1373,7 @@ Continious Integration: Automatisches und regelmässiges ausführen von Tests
 und/oder Deployments.
 </p>
 <p>
-Private Key: Geheimer Schlüssel, welcher für eine asymetrische Verschlüsselung
+Private Key: Geheimer Schlüssel, welcher für eine asymmetrische Verschlüsselung
 verwendet wird.
 </p>
 <p>
@@ -1385,7 +1385,7 @@ Man-in-the-middle: Angriff auf die Kommunikation zwischen zwei Punkten, bei
 welcher Daten abgehört und/oder modifiziert werden.
 </p>
 <p>
-Code Coverage: Beschreibt, wieviel Prozent des Source-Codes durch Unit Tests
+Code Coverage: Beschreibt, wie viel Prozent des Source-Codes durch Unit Tests
 abgedeckt werden.
 </p>
 <p>
