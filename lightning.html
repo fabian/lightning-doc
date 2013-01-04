@@ -149,7 +149,6 @@ a[href^="http"]:after::footnote-marker {
 div.chapter {
     counter-increment: chapter;
     counter-reset: footnote;
-    page-break-before: always;
     margin-top: 3em;
 }
 
@@ -176,6 +175,11 @@ div.chapter h3:before {
     padding-right: 0.5em;
     display: inline-block;
     text-align: right;
+}
+
+h3.break,
+div.chapter {
+    page-break-before: always;
 }
 
 #front {
@@ -905,23 +909,26 @@ Zahlenkombinationen bekannt sind, und bieten eine genügende Sicherheit mit 10^4
 </figure>
 
 <h3>Zwei-Faktor-Authentifizierung</h3>
-<p>Eine Zwei-Faktor-Authentifizierung setzt sich typischerweise aus Elementen die der User
-    kennt und die ein User besitzt zusammen.
+<p>
+Eine Zwei-Faktor-Authentifizierung setzt sich typischerweise aus Elementen die 
+der User kennt und die ein User besitzt zusammen.
 </p>
 
-<h4>Etwas was ein User kennt</h4>
-<p>Der User ist im Besitz einer eindeutigen URL, welcher nur er kennen sollte.
+<p>
+Etwas was ein User kennt: Der User ist im Besitz einer eindeutigen URL, welcher
+nur er kennen sollte.
 </p>
 
-<h4>Etwas was ein User besitzt</h4>
-<p>Der User ist im Besitz der Lightning App auf seinem iPhone, welche eine Challenge 
-    erhalten wird.
+<p>
+Etwas was ein User besitzt: Der User ist im Besitz der Lightning App auf seinem
+iPhone, welche eine Challenge erhalten wird.
 </p>
 
-<h4>Zwei-Faktor-Authentifizierung?</h4>
-<p>Der Zugriff auf das Web Interface ist durch eine Zwei-Faktor-Authentifizierung geschützt. Es besteht
-    aber keine "Strong"-Authentifizierung, weil die URL in der App dargestellt wird. Würde ein User
-    sein iPhone verlieren hätte ein Fremder ebenfalls Zugriff auf das Web Interface.
+<p>
+Der Zugriff auf das Web Interface ist also durch eine
+Zwei-Faktor-Authentifizierung geschützt. Es besteht aber keine «Strong»-
+Authentifizierung, weil die URL in der App dargestellt wird. Würde ein User sein
+iPhone verlieren hätte ein Fremder ebenfalls Zugriff auf das Web Interface.
 </p>
 
 </div>
@@ -933,9 +940,9 @@ Zahlenkombinationen bekannt sind, und bieten eine genügende Sicherheit mit 10^4
 
 <p>
 Die Applikation befolgt die grunsätzlichen Prinzipien zweier moderner
-Software-Architektur. Zum einen die Model–View–Controller-Architektur als Basis
-für den Aufbau der Software, zum anderen die REST-Architetkur (Representational
-state transfer), welche die Struktur der API vorgibt.
+Software-Architekturen. Zum einen die Model–View–Controller-Architektur als Basis
+für den Aufbau der Software, zum anderen die REST-Architetkur, welche die
+Struktur der API vorgibt.
 </p>
 
 <h4>Model-View-Controller</h4>
@@ -943,7 +950,8 @@ state transfer), welche die Struktur der API vorgibt.
 <p>
 Für die Software kommt eine an das Web angepasster Form der
 Model–View–Controller-Architektur zur Anwendung, welche mithilfe des
-PHP-Frameworks Symfony in der Version 2.1 umgesetzt wurde:
+PHP-Frameworks <a href="http://symfony.com/">Symfony</a> in der Version 2.1
+umgesetzt wurde:
 </p>
 
 <figure id="figure-package-diagram">
@@ -953,7 +961,7 @@ PHP-Frameworks Symfony in der Version 2.1 umgesetzt wurde:
 
 <p>
 Das Model setzt sich aus den gespeicherten Daten und der
-Business-Logik zusammen. Es besteht aus den Klassen in den Namespaces
+Business-Logik zusammen. Es besteht aus den Klassen in den Paketen
 <code>Lightning\ApiBundle\Entity</code> und
 <code>Lightning\ApiBundle\Service</code>.
 </p>
@@ -970,23 +978,35 @@ erledigt, welches die Daten des Controllers gemäss dem HTTP-Header
 Der Controller nimmt Benutzeranfragen entgegen und ruft die
 nötigen Befehle aus dem Model auf. Er gibt dann die Daten aus dem Model an die
 View weiter, damit diese die Daten darstellen kann. Die dafür zuständigen Klassen
-befinden sich im Namespace <code>Lightning\ApiBundle\Controller</code>.
+befinden sich im Paket <code>Lightning\ApiBundle\Controller</code>.
+</p>
+<p>
+Gespeichert werden die Daten in einer MySQL-Datenbank, der Zugriff erfolgt über
+die Hilfsklassen von Symfony.
 </p>
 
-<h3>Entwicklung</h3>
+<h3 class="break">Entwicklung</h3>
+
+<p>
+Um ein einfaches Deployment zu ermöglichen und ein Auslieferung von fehlerhaftem
+Source-Code zu verhindern, wurde eine ganze Kette von automatischen Prozessen und
+Tools eingerichtet, die bei der Entwicklung immer wieder durchlaufen werden:
+</p>
+
 <figure id="figure-deploy">
 <img src="images/deploy.svg" width="500" height="230" />
 <figcaption>Übersicht Ablauf Entwicklung</figcaption>
 </figure>
 
 <h4>
-Lokal
+Lokale Entwicklung
 </h4>
 <p>
 Entwickelt wird die Applikation lokal auf dem Computer des Entwicklers.
 Die Installationstionsvoraussetzungen sind minimal und werden mit den meisten
 modernen, unixähnlichen Betriebssystemen (wie z.B. Mac OS X) mitgeliefert.
-Konkret wird nur PHP ab Version 5.3 vorausgesetzt - auf Windows kann dieses auch
+Konkret wird nur der MySQL Community Server und PHP ab Version 5.3 vorausgesetzt 
+- auf Windows kann dieses auch
 einfach manuell installiert werden. Sämtliche restlichen Abhängigkeiten können
 mit dem PHP Dependency Manager namens Composer installiert werden.
 </p>
@@ -996,7 +1016,7 @@ Source Code auch allen zugänglich ist, wird zudem der kostenlose Dienst GitHub
 eingesetzt.
 </p>
 <p>
-Um das Projekt auf einem Computer von Grund auf zu installieren genügen folgende
+Um das Projekt auf einem Computer komplett zu installieren, genügen folgende
 Befehle:
 </p>
 <p class="code">
@@ -1019,9 +1039,11 @@ gestartet. Danach ist die Applikation unter http://localhost:8000/ benutzbar.
 GitHub
 </h4>
 <p>
-Der zentrale Server der Versionsverwaltung ermöglicht das Review von Änderungen
+Der zentrale Server der Versionsverwaltung ermöglicht Reviews von Änderungen
 und löst per Webhook die Ausführung der Unit-Tests auf Travis-CI sowie die
-Überprüfung der Code-Guidelines aus.
+Überprüfung der Coding-Guidelines aus. Der Source-Code der Web-Applikation findet
+sich als Open-Source-Projekt öffentlich ersichtlich unter
+<a href="https://github.com/fabian/lightning-web">github.com/fabian/lightning-web</a>.
 </p>
 
 <h4>
@@ -1042,19 +1064,24 @@ Korrekturvorschlägen.
 Travis CI
 </h4>
 <p>
-Ebenfalls kostenlos für Open-Source-Projekte ist der Continious-Integration-
-Service <a href="https://travis-ci.org/">Travis CI</a>. Bei jedem Commit wird
+Ebenfalls kostenlos für Open-Source-Projekte ist der
+Continious-Integration-Service <a href="https://travis-ci.org/">Travis CI</a>.
+Bei jedem Commit wird
 auf dem Travis-Server eine virtuelle Maschine gestartet und das Projekt
-installiert. Dann werden die Unit Tests mit PHPUnit ausgeführt und die Coding
-Guidelines mit PHPCS überprüft. Nur wenn beide Prüfungen erfolgreich waren, wird
+installiert. Dann werden die Unit Tests mit
+<a href="https://github.com/sebastianbergmann/phpunit/">PHPUnit</a> ausgeführt 
+und die Coding-Guidelines mit
+<a href="https://github.com/squizlabs/PHP_CodeSniffer">PHPCS</a> überprüft.
+Nur wenn beide Prüfungen erfolgreich waren, wird
 der Zustand der Web-Applikation als stabil erachtet und das Deployment
 angestossen. Ansonsten erhält der Entwickler wiederum ein E-Mail mit einem
 Hinweis auf den Fehler.
 </p>
 
 <p>
-Obwohl die Code Coverage von Unit Test immer mit Vorsicht zu geniesen ist, konnte
-in den meisten Packages eine Abdeckung von über 90% erreicht werden.
+Die Code Coverage von Unit Tests ist immer mit Vorsicht zu geniesen ist, da keine
+Aussage über die Wichtigkeit der getesteten Teile gemacht werden kann. Dennoch
+konnte in den meisten Paketen eine Abdeckung von über 90% erreicht werden.
 </p>
 
 <figure id="figure-coverage">
@@ -1073,13 +1100,13 @@ kann kostenlos betrieben werden, steigt die Benutzeranzahl, kann einfach gegen
 eine Gebühr die Anzahl der Server erhöht werden.
 </p>
 <p>
-Das Deployment bei Pagda Box erfolgt ebenfalls mit Git. Es gäbe die Möglichkeit,
+Das Deployment bei Pagoda Box erfolgt ebenfalls mit Git. Es gäbe die Möglichkeit,
 einen Private Key mit Deployment-Rechten auf dem Travis-Server zu hinterlegen,
-wodurch nach den erfolgreichen Tests direkt von dort deployed werden können. Dies
+wodurch nach den erfolgreichen Tests direkt von dort deployed werden könnte. Dies
 hätte aber zum Nachteil, dass der Private Key öffentlich wäre und jede Person
 beliebigen Code auf den Server deployen könnte. Es wurde deshalb eine separate
 Deployment-Applikation mit PHP geschrieben und auf einem separaten Server
-installiert. Die Deployment-Applikation wird Travis aufgerufen und überprüft
+installiert. Die Deployment-Applikation wird von Travis aufgerufen und überprüft
 dessen Signatur anhand eines geheimen Tokens und führt dann das Deployment durch.
 </p>
 
@@ -1113,7 +1140,7 @@ manuell und programmatisch erstellt, teilweise jedoch auch mit Hilfe des Interfa
 <h4>Dependecy Management</h4>
 <p>
     <a href="http://cocoapods.org">CocoaPods</a> wurde eingesetzt um ein Dependecy Management für die App Entwicklung einzusetzen.
-    In einem File names PodFile werden die veschiedenen Abhängikeiten(pod) definiert. Es kann
+    In einem File names <code>PodFile</code> werden die veschiedenen Abhängikeiten(pod) definiert. Es kann
     auch die Version von iOS definiert werden.
 </p>
 <p class="code">
@@ -1145,8 +1172,8 @@ manuell und programmatisch erstellt, teilweise jedoch auch mit Hilfe des Interfa
 </p>
 <h4>In-App Kauf</h4>
 <p>
-    Gewisse Funktionalität in der App wird nur durch den Kauf eines Jahres-Abo von 1.- Sfr. freigeschaltet. 
-    Dies umfasst das Teilen von Listen, die Speicherung der Daten in der "Cloud" und die Benutzung des
+    Gewisse Funktionalität in der App wird nur durch den Kauf eines Jahres-Abo von CHF 1.00 freigeschaltet. 
+    Dies umfasst das Teilen von Listen, die Speicherung der Daten in der «Cloud» und die Benutzung des
     Web Interfaces.
 </p>
 <p>
@@ -1173,7 +1200,7 @@ manuell und programmatisch erstellt, teilweise jedoch auch mit Hilfe des Interfa
     ID nach den Produktinformationen. Diese werden aufbereitet dem User dargestellt, siehe
     <a href="#figure-in-app-button">In-App Button für den Kauf</a>. Entscheidend
     sich der User ein Abo zu kaufen wird dies dem Apple Server mitgeteilt und der Account des Users wird belastet.
-    Der App wird einen sogennanten "Kassenzettel" zur Validierung des Kaufes zu Verfügung gestellt.
+    Der App wird einen sogennanten «Kassenzettel» zur Validierung des Kaufes zu Verfügung gestellt.
     Dieser Kassenzettel wird an die Server von lightningapp.ch übermittellt, welche wiederum mit einem Apple Server kommuniziert.
     Durch diesen Ansatz kann eine Man-in-the-middle Attacke abgewehrt werden.</p>
 <figure id="figure-in-app-purchase" class="inline">
@@ -1249,8 +1276,8 @@ nicht einfacher gemacht, sondern um weitere Komponenten erweitert.
 </p>
 <p>
 	Die Herrausforderung eine App zu entwickeln, welche mit einem Server im Internet
-	kommuniziert konnte gemeistert werden. Neue Technologien, Services konnten integriert werden
-	um eine "state of the art" App zu entwickeln.
+	kommuniziert konnte gemeistert werden. Neue Technologien und Services konnten integriert werden,
+	um eine «State of the Art»-App zu entwickeln.
 </p>
 
 </div>
@@ -1337,7 +1364,7 @@ Interface Builder: Ein Tool, welches das Erstellen von GUI's mit Hilfe eines
 Baukastensystems vereinfacht.
 </p>
 
-<h3>Abbildungsverzeichnis</h3>
+<h3 class="break">Abbildungsverzeichnis</h3>
 
 <ul id="figures"></ul>
 
